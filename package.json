@@ -1,6 +1,7 @@
 {
   "name": "family-chart",
-  "version": "0.2.1",
+  "version": "0.9.0",
+  "type": "module",
   "description": "family tree creator and viewer",
   "keywords": [
     "datafull",
@@ -14,12 +15,19 @@
     "name": "donatso"
   },
   "main": "dist/family-chart.js",
+  "types": "dist/types/index.d.ts",
   "unpkg": "dist/family-chart.min.js",
   "module": "dist/family-chart.esm.js",
   "exports": {
     ".": {
-      "import": "./dist/family-chart.esm.js",
-      "require": "./dist/family-chart.js"
+      "import": {
+        "types": "./dist/types/index.d.ts",
+        "default": "./dist/family-chart.esm.js"
+      },
+      "require": {
+        "types": "./dist/types/index.d.ts",
+        "default": "./dist/family-chart.js"
+      }
     },
     "./styles/*": "./dist/styles/*"
   },
@@ -29,22 +37,32 @@
   },
   "files": [
     "dist/**/*.js",
-    "dist/styles/**"
+    "dist/styles/**",
+    "dist/types/**"
   ],
   "scripts": {
     "build": "node build.js",
-    "test": "yarn run cypress open --project tests",
-    "dev": "http-server",
-    "prepublishOnly": "node build.js"
+    "test": "cypress open",
+    "test-run": "cypress run",
+    "dev": "vite",
+    "docs": "typedoc",
+    "docs:deploy": "yarn docs && gh-pages -d docs/api -b gh-pages",
+    "prepublishOnly": "node prePublish.js"
   },
   "sideEffects": false,
   "dependencies": {
-    "d3": "6"
+    "d3": "^7.9.0"
   },
   "devDependencies": {
-    "cypress": "^9.1.0",
+    "@rollup/plugin-terser": "^0.4.4",
+    "@rollup/plugin-typescript": "^12.1.4",
+    "@types/d3": "^7.4.3",
+    "cypress": "15.2.0",
+    "gh-pages": "^6.3.0",
     "http-server": "^14.1.1",
-    "rollup": "2",
-    "rollup-plugin-terser": "7"
+    "rollup": "^4.45.1",
+    "typedoc": "^0.28.13",
+    "typescript": "^5.8.3",
+    "vite": "^6.3.5"
   }
 }
