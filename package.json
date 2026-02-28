@@ -51,17 +51,20 @@
   },
   "sideEffects": false,
   "dependencies": {
-    "d3": "^7.9.0"
+    "d3": "^7.9.0",
+    "family-chart": "^0.9.0",
+    "react": "^19.2.4",
+    "react-dom": "^19.2.4"
   },
   "devDependencies": {
     "@rollup/plugin-terser": "^0.4.4",
     "@rollup/plugin-typescript": "^12.1.4",
     "@types/d3": "^7.4.3",
-    "cypress": "15.2.0",
+    "cypress": "^15.10.0",
     "gh-pages": "^6.3.0",
     "http-server": "^14.1.1",
     "rollup": "^4.45.1",
-    "typedoc": "^0.28.13",
+    "typedoc": "^0.0.4",
     "typescript": "^5.8.3",
     "vite": "^6.3.5"
   }
